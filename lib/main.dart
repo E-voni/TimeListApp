@@ -6,12 +6,17 @@ import 'package:get_storage/get_storage.dart';
 import 'package:myapp/services/theme_services.dart';
 import 'package:myapp/ui/theme.dart';
 import 'package:myapp/ui/pages/login_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await DBHelper.initDb();
   await GetStorage.init();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 

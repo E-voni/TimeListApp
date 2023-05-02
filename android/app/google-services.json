@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "204402729284",
+    "project_id": "timelist-6fdbc",
+    "storage_bucket": "timelist-6fdbc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204402729284:android:9cc0e1881110b31d483711",
+        "android_client_info": {
+          "package_name": "com.yvonne.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "204402729284-vrochpbeiv46aegf3kbkt6p1eiteo929.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwXA_OBO7CcajpGlwxhPeujafGVmpqQrk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "204402729284-vrochpbeiv46aegf3kbkt6p1eiteo929.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "204402729284-q8f3bqmitc6c1553iaei7lecv8fpsqk5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yvonne.myapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

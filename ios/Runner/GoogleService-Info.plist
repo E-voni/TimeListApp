@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>204402729284-q8f3bqmitc6c1553iaei7lecv8fpsqk5.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.204402729284-q8f3bqmitc6c1553iaei7lecv8fpsqk5</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDH-I01BFWjHAO2s3-B-br5fEOGYNgZU6A</string>
+	<key>GCM_SENDER_ID</key>
+	<string>204402729284</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.yvonne.myapp</string>
+	<key>PROJECT_ID</key>
+	<string>timelist-6fdbc</string>
+	<key>STORAGE_BUCKET</key>
+	<string>timelist-6fdbc.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:204402729284:ios:e2060a661ca718fc483711</string>
+</dict>
+</plist>

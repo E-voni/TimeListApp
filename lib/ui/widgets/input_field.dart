@@ -9,7 +9,7 @@ class InputField extends StatelessWidget {
   final Widget? widget;
 
   const InputField(
-      {required this.title,
+      {super.key, required this.title,
         this.controller,
         required this.hint,
         this.widget});
@@ -17,7 +17,7 @@ class InputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(top: 16.0),
+        margin: const EdgeInsets.only(top: 16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -25,11 +25,11 @@ class InputField extends StatelessWidget {
               title,
               style: titleTextStle,
             ),
-            SizedBox(
+            const SizedBox(
               height: 8.0,
             ),
             Container(
-              padding: EdgeInsets.only(left: 14.0),
+              padding: const EdgeInsets.only(left: 14.0),
               height: 52,
               decoration: BoxDecoration(
                   border: Border.all(

@@ -47,6 +47,7 @@ dependencies:
   get:
   sqflite:
   rxdart:
+  firebase_core: ^2.10.0
 
 dev_dependencies:
   flutter_test:

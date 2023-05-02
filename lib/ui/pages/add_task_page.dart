@@ -66,14 +66,11 @@ class _AddTaskPageState extends State<AddTaskPage> {
                 "Add Task",
                 style: headingTextStyle,
               ),
-              SizedBox(
-                height: 8,
-              ),
+              const SizedBox(height: 8),
               InputField(
                 title: "Title",
                 hint: "Enter title here.",
-                controller: _titleController,
-              ),
+                controller: _titleController),
               InputField(
                   title: "Note",
                   hint: "Enter note here.",
@@ -82,10 +79,9 @@ class _AddTaskPageState extends State<AddTaskPage> {
                 title: "Date",
                 hint: DateFormat.yMd().format(_selectedDate),
                 widget: IconButton(
-                  icon: (Icon(
+                  icon: (const Icon(
                     Icons.calendar_month_sharp,
-                    color: Colors.orangeAccent,
-                  )),
+                    color: Colors.orangeAccent,)),
                   onPressed: () {
                     //_showDatePicker(context);
                     _getDateFromUser();
@@ -99,7 +95,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                       title: "Start Time",
                       hint: _startTime,
                       widget: IconButton(
-                        icon: (Icon(
+                        icon: (const Icon(
                           Icons.alarm,
                           color: Colors.orangeAccent,
                         )),
@@ -112,15 +108,13 @@ class _AddTaskPageState extends State<AddTaskPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: 12,
-                  ),
+                  const SizedBox(width: 12),
                   Expanded(
                     child: InputField(
                       title: "End Time",
                       hint: _endTime,
                       widget: IconButton(
-                        icon: (Icon(
+                        icon: (const Icon(
                           Icons.alarm,
                           color: Colors.orangeAccent,
                         )),
@@ -140,7 +134,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                     DropdownButton<String>(
                         dropdownColor: Colors.orangeAccent,
                       //value: _selectedRemind.toString(),
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.keyboard_arrow_down,
                           color: Colors.grey,
                         ),
@@ -160,7 +154,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                             child: Text(value.toString(), style: TextStyle(color:Colors.white),),
                           );
                         }).toList()),
-                    SizedBox(width: 6),
+                    const SizedBox(width: 6),
                   ],
                 ),
               ),
@@ -170,14 +164,12 @@ class _AddTaskPageState extends State<AddTaskPage> {
                 widget: Row(
                   children: [
                     Container(
-
                       child: DropdownButton<String>(
                           dropdownColor: Colors.orangeAccent,
                           //value: _selectedRemind.toString(),
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.keyboard_arrow_down,
-                            color: Colors.grey,
-                          ),
+                            color: Colors.grey),
                           iconSize: 32,
                           elevation: 4,
                           style: subTitleTextStle,
@@ -191,17 +183,16 @@ class _AddTaskPageState extends State<AddTaskPage> {
                               .map<DropdownMenuItem<String>>((String value) {
                             return DropdownMenuItem<String>(
                               value: value,
-                              child: Text(value, style: TextStyle(color:Colors.white),),
+                              child: Text(value,
+                                style: const TextStyle(color:Colors.white),),
                             );
                           }).toList()),
                     ),
-                    SizedBox(width: 6),
+                    const SizedBox(width: 6),
                   ],
                 ),
               ),
-              SizedBox(
-                height: 18.0,
-              ),
+              const SizedBox(height: 18.0,),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -215,9 +206,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 30.0,
-              ),
+              const SizedBox(height: 30.0),
             ],
           ),
         ),
