@@ -181,14 +181,18 @@ class _HomePageState extends State<HomePage> {
               color: Get.isDarkMode ? Colors.white : darkGreyClr),
         ),
         actions: [
-          CircleAvatar(
-            radius: 16,
-            backgroundImage: AssetImage("images/girl.jpg"),
+          Icon(Icons.person,
+            size: 25,
+            color: primaryClr,
           ),
           SizedBox(
             width: 20,
           ),
         ]);
+  }
+
+  _selectdate(){
+
   }
 
   _showTasks() {
@@ -365,12 +369,12 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SvgPicture.asset(
-                  "images/task.svg",
+               /* SvgPicture.asset(
                   color: primaryClr.withOpacity(0.5),
                   height: 90,
                   semanticsLabel: 'Task',
                 ),
+                */
                 /*
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
