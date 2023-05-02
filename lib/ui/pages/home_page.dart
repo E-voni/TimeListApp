@@ -27,7 +27,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   DateTime _selectedDate = DateTime.parse(DateTime.now().toString());
   final _taskController = Get.put(TaskController());
-//  late var notifyHelper;
   bool animate=false;
   double left=630;
   double top=900;
@@ -35,9 +34,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-//    notifyHelper = NotifyHelper();
-//    notifyHelper.initializeNotification();
-//    notifyHelper.requestIOSPermissions();
     _timer = Timer(Duration(milliseconds: 500), () {
       setState(() {
         animate=true;

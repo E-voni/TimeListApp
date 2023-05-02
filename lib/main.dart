@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:myapp/services/theme_services.dart';
 import 'package:myapp/ui/theme.dart';
+import 'package:myapp/ui/pages/login_page.dart';
 
 
 void main() async {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: Themes.light,
       darkTheme: Themes.dark,
       themeMode: ThemeService().theme,
-      home: HomePage(),
+      home: LoginPage(),
     );
   }
 }

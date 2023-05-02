@@ -39,7 +39,7 @@ dependencies:
   intl:
   google_fonts:
   date_picker_timeline:
-
+  google_sign_in:
   flutter_svg:
   flutter_staggered_animations:
 
@@ -71,7 +71,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
+  assets:
+    - lib/images/google_logo.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
