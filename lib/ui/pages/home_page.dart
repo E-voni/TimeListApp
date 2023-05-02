@@ -174,9 +174,6 @@ class _HomePageState extends State<HomePage> {
             );
 
              */
-
-            //notifyHelper.scheduledNotification();
-            //notifyHelper.periodicalyNotification();
           },
           child: Icon(
               Get.isDarkMode ? Icons.wb_sunny : Icons.shield_moon,
