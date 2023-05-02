@@ -70,12 +70,17 @@ class _AddTaskPageState extends State<AddTaskPage> {
               InputField(
                 title: "Title",
                 hint: "Enter title here.",
-                controller: _titleController),
+                controller: _titleController,
+                obscureText: false,
+              ),
               InputField(
                   title: "Note",
                   hint: "Enter note here.",
-                  controller: _noteController),
+                  controller: _noteController,
+                obscureText: false,
+              ),
               InputField(
+                obscureText: false,
                 title: "Date",
                 hint: DateFormat.yMd().format(_selectedDate),
                 widget: IconButton(
@@ -92,6 +97,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                 children: [
                   Expanded(
                     child: InputField(
+                      obscureText: false,
                       title: "Start Time",
                       hint: _startTime,
                       widget: IconButton(
@@ -111,6 +117,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                   const SizedBox(width: 12),
                   Expanded(
                     child: InputField(
+                      obscureText: false,
                       title: "End Time",
                       hint: _endTime,
                       widget: IconButton(
@@ -127,6 +134,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                 ],
               ),
               InputField(
+                obscureText: false,
                 title: "Remind",
                 hint: "$_selectedRemind minutes early",
                 widget: Row(
@@ -161,6 +169,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
               InputField(
                 title: "Repeat",
                 hint: _selectedRepeat,
+                obscureText: false,
                 widget: Row(
                   children: [
                     Container(

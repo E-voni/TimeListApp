@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:date_picker_timeline/date_picker_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -41,6 +42,9 @@ class _HomePageState extends State<HomePage> {
         top=top/3;
       });
     });
+  }
+  void signUserOut(){
+    FirebaseAuth.instance.signOut();
   }
 
   @override
@@ -160,36 +164,23 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: context.theme.backgroundColor,
         leading: GestureDetector(
           onTap: () {
-            ThemeService().switchTheme();
-
-            /*
-            notifyHelper.displayNotification(
-              title: "Theme Changed",
-              body: Get.isDarkMode
-                  ? "Light theme activated."
-                  : "Dark theme activated",
-            );
-
-             */
-          },
+            ThemeService().switchTheme();},
           child: Icon(
               Get.isDarkMode ? Icons.wb_sunny : Icons.shield_moon,
               color: Get.isDarkMode ? Colors.white : darkGreyClr),
         ),
+
         actions: [
-          Icon(Icons.person,
-            size: 25,
-            color: primaryClr,
-          ),
-          SizedBox(
-            width: 20,
-          ),
-        ]);
+          IconButton(
+              onPressed: signUserOut, icon:  const Icon(Icons.logout,
+                size: 25,
+                color: primaryClr),),
+              ],
+        //const SizedBox(height: 20),
+    );
   }
 
-  _selectdate(){
 
-  }
 
   _showTasks() {
     return Expanded(

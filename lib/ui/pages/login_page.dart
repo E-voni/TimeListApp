@@ -1,6 +1,7 @@
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/services/auth_services.dart';
 import 'package:myapp/ui/theme.dart';
 import 'package:flutter/src/material/colors.dart';
 import 'package:myapp/ui/widgets/login_button.dart';
@@ -12,13 +13,25 @@ import '../widgets/input_field.dart';
 class LoginPage extends StatelessWidget{
    LoginPage({super.key});
 
-  final usernameController = TextEditingController();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
   //sign user in method
-   void signUserIn(){}
+   void signUserIn() async{
+     try{
+       await FirebaseAuth.instance.signInWithEmailAndPassword(
+           email: emailController.text,
+           password: passwordController.text);
+     } on FirebaseAuthException catch (e) {
+       if (e.code == 'user-not-found'){
+         print('Wrong Email');
+       } else if (e.code == 'wrong-password'){
+         print('Wrong Password');
+       }
+     }
+   }
 
-  @override
+@override
   Widget build(BuildContext context){
     return Scaffold(
       backgroundColor: Colors.grey[100],
@@ -42,9 +55,10 @@ class LoginPage extends StatelessWidget{
               const SizedBox(height: 10),
               //username textfield
               InputField(
-                title: "    Username",
-                hint: "Enter username",
-                controller: usernameController,
+                title: "    Email",
+                hint: "Enter email",
+                controller: emailController,
+                obscureText: false,
               ),
 
 
@@ -54,6 +68,7 @@ class LoginPage extends StatelessWidget{
                 title: "    Password",
                 hint: "Enter password",
                 controller: passwordController,
+                obscureText: true,
               ),
 
               const SizedBox(height: 10),
@@ -85,13 +100,15 @@ class LoginPage extends StatelessWidget{
                   style: TextStyle(fontSize: 15),
                 ),
               ),
-              
+
               const SizedBox(height: 20),
               //google sign in
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                SquareTile(imagePath: 'lib/images/google_logo.png'),
+                children: [
+                SquareTile(
+                    onTap: () => AuthService().signInWithGoogle(),
+                    imagePath: 'lib/images/google_logo.png'),
               ],),
 
               const SizedBox(height: 20),
@@ -109,8 +126,6 @@ class LoginPage extends StatelessWidget{
                 ],
               )
 
-
-
             ],
 
           ),
@@ -121,6 +136,4 @@ class LoginPage extends StatelessWidget{
 
     );
   }
-
-
 }

@@ -7,12 +7,14 @@ class InputField extends StatelessWidget {
   final TextEditingController? controller;
   final String? hint;
   final Widget? widget;
+  final bool obscureText;
 
   const InputField(
       {super.key, required this.title,
         this.controller,
         required this.hint,
-        this.widget});
+        this.widget,
+        required this.obscureText,});
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +49,7 @@ class InputField extends StatelessWidget {
                       Get.isDarkMode ? Colors.grey[100] : Colors.grey[600],
                       readOnly: widget == null ? false : true,
                       controller: controller,
+                      obscureText: obscureText,
                       style: subTitleTextStle,
                       decoration: InputDecoration(
                         hintText: hint,

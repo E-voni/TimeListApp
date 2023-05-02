@@ -1,4 +1,5 @@
 import 'package:myapp/db/db_helper.dart';
+import 'package:myapp/ui/pages/auth_page.dart';
 import 'package:myapp/ui/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: Themes.light,
       darkTheme: Themes.dark,
       themeMode: ThemeService().theme,
-      home: LoginPage(),
+      home: AuthPage(),
     );
   }
 }
