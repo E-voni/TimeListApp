@@ -84,7 +84,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                 widget: IconButton(
                   icon: (Icon(
                     Icons.calendar_month_sharp,
-                    color: Colors.grey,
+                    color: Colors.orangeAccent,
                   )),
                   onPressed: () {
                     //_showDatePicker(context);
@@ -101,7 +101,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                       widget: IconButton(
                         icon: (Icon(
                           Icons.alarm,
-                          color: Colors.grey,
+                          color: Colors.orangeAccent,
                         )),
                         onPressed: () {
                           _getTimeFromUser(isStartTime: true);
@@ -122,7 +122,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                       widget: IconButton(
                         icon: (Icon(
                           Icons.alarm,
-                          color: Colors.grey,
+                          color: Colors.orangeAccent,
                         )),
                         onPressed: () {
                           _getTimeFromUser(isStartTime: false);
@@ -138,6 +138,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                 widget: Row(
                   children: [
                     DropdownButton<String>(
+                        dropdownColor: Colors.orangeAccent,
                       //value: _selectedRemind.toString(),
                         icon: Icon(
                           Icons.keyboard_arrow_down,
@@ -156,7 +157,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                             .map<DropdownMenuItem<String>>((int value) {
                           return DropdownMenuItem<String>(
                             value: value.toString(),
-                            child: Text(value.toString()),
+                            child: Text(value.toString(), style: TextStyle(color:Colors.white),),
                           );
                         }).toList()),
                     SizedBox(width: 6),
@@ -171,7 +172,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                     Container(
 
                       child: DropdownButton<String>(
-                          dropdownColor: Colors.blueGrey,
+                          dropdownColor: Colors.orangeAccent,
                           //value: _selectedRemind.toString(),
                           icon: Icon(
                             Icons.keyboard_arrow_down,
@@ -287,7 +288,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                       ? Center(
                     child: Icon(
                       Icons.done,
-                      color: Colors.white,
+                      color: Colors.orangeAccent,
                       size: 18,
                     ),
                   )
@@ -314,34 +315,13 @@ class _AddTaskPageState extends State<AddTaskPage> {
         actions: [
           CircleAvatar(
             radius: 16,
-            backgroundImage: AssetImage("images/girl.jpg"),
+            //backgroundImage: AssetImage("images/girl.jpg"),
           ),
           SizedBox(
             width: 20,
           ),
         ]);
   }
-
-  // _compareTime() {
-  //   print("compare time");
-  //   print(_startTime);
-  //   print(_endTime);
-
-  //   var _start = double.parsestartTime);
-  //   var _end = toDouble(_endTime);
-
-  //   print(_start);
-  //   print(_end);
-
-  //   if (_start > _end) {
-  //     Get.snackbar(
-  //       "Invalid!",
-  //       "Time duration must be positive.",
-  //       snackPosition: SnackPosition.BOTTOM,
-  //       overlayColor: context.theme.backgroundColor,
-  //     );
-  //   }
-  // }
 
   double toDouble(TimeOfDay myTime) => myTime.hour + myTime.minute / 60.0;
 
@@ -379,8 +359,8 @@ class _AddTaskPageState extends State<AddTaskPage> {
         context: context,
         initialDate: _selectedDate,
         initialDatePickerMode: DatePickerMode.day,
-        firstDate: DateTime(2015),
-        lastDate: DateTime(2101));
+        firstDate: DateTime(1900),
+        lastDate: DateTime(2100),);
     if (_pickedDate != null) {
       setState(() {
         _selectedDate = _pickedDate;

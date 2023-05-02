@@ -126,20 +126,21 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Have a nice day!",
+                "Today is",
                 style: headingTextStyle,
               ),
               Text(
                 " ",
                 style: subHeadingTextStyle,
               ),
-              Text(
+             /* Text(
                 "Today is",
                 style: headingTextStyle,
               ),
+              */
               Text(
                 DateFormat.yMMMMd().format(DateTime.now()),
-                style: subHeadingTextStyle,
+                style: headingTextStyle,
               ),
               const SizedBox(height: 20,)
 
