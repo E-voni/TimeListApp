@@ -138,8 +138,8 @@ class _RegPageState extends State<RegPage> {
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 25.0),
                     child: Text(
-                      '-------- Or continue with --------',
-                      style: TextStyle(fontSize: 15),
+                      '-------- Or sign up with --------',
+                      style: TextStyle(fontSize: 16),
                     ),
                   ),
 
@@ -158,14 +158,14 @@ class _RegPageState extends State<RegPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text('Already a member?'),
+                      const Text('Already a member?',style: TextStyle(fontSize: 16)),
                       const SizedBox(width: 4),
                       GestureDetector(
                         onTap: widget.onTap,
                         child: const Text('Login now',
                           style: TextStyle(
                               color: Colors.blue,
-                              fontSize: 15,
+                              fontSize: 16,
                               fontWeight: FontWeight.bold
                           ),
                         ),

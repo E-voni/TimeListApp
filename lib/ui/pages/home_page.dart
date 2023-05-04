@@ -65,10 +65,10 @@ class _HomePageState extends State<HomePage> {
 
   _dateBar() {
     return Container(
-      margin: EdgeInsets.only(bottom: 10, left: 20),
+      margin: const EdgeInsets.only(bottom: 10, left: 20),
       child: Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20)
+            borderRadius: BorderRadius.circular(30)
         ),
         child: DatePicker(
           DateTime.now(),
@@ -76,7 +76,6 @@ class _HomePageState extends State<HomePage> {
           width: 80,
           initialSelectedDate: DateTime.now(),
           selectionColor: primaryClr,
-          //selectedTextColor: primaryClr,
           selectedTextColor: Colors.white,
           dateTextStyle: GoogleFonts.lato(
             textStyle: const TextStyle(
@@ -85,15 +84,15 @@ class _HomePageState extends State<HomePage> {
               color: Colors.grey,
             ),
           ),
+          monthTextStyle: GoogleFonts.lato(
+          textStyle: const TextStyle(
+            fontSize: 16.0,
+            color: Colors.grey,
+          ),
+        ),
           dayTextStyle: GoogleFonts.lato(
             textStyle: const TextStyle(
               fontSize: 16.0,
-              color: Colors.grey,
-            ),
-          ),
-          monthTextStyle: GoogleFonts.lato(
-            textStyle: const TextStyle(
-              fontSize: 10.0,
               color: Colors.grey,
             ),
           ),
@@ -164,7 +163,6 @@ class _HomePageState extends State<HomePage> {
                 size: 25,
                 color: primaryClr),),
               ],
-        //const SizedBox(height: 20),
     );
   }
 
@@ -208,7 +206,6 @@ class _HomePageState extends State<HomePage> {
                   );
                 }
                 if (task.date == DateFormat.yMd().format(_selectedDate)) {
-                  //notifyHelper.scheduledNotification();
                   return AnimationConfiguration.staggeredList(
                     position: index,
                     duration: const Duration(milliseconds: 1375),
@@ -220,7 +217,6 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             GestureDetector(
                                 onTap: () {
-
                                   showBottomSheet(context, task);
                                 },
                                 child: TaskTile(task)),
@@ -259,14 +255,14 @@ class _HomePageState extends State<HomePage> {
           task.isCompleted == 1
               ? Container()
               : _buildBottomSheetButton(
-              label: "Task Completed",
+              label: "Completed",
               onTap: () {
                 _taskController.markTaskCompleted(task.id);
                 Get.back();
               },
               clr: primaryClr),
           _buildBottomSheetButton(
-              label: "Delete Task",
+              label: "Delete",
               onTap: () {
                 _taskController.deleteTask(task);
                 Get.back();
@@ -276,7 +272,7 @@ class _HomePageState extends State<HomePage> {
             height: 20,
           ),
           _buildBottomSheetButton(
-              label: "Close",
+              label: "Back",
               onTap: () {
                 Get.back();
               },
@@ -332,9 +328,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: const [
-                SizedBox(
-                  height: 80,
-                ),
+                SizedBox(height: 80),
               ],
             )
         ),
