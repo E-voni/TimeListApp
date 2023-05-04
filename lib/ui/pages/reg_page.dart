@@ -91,7 +91,7 @@ class _RegPageState extends State<RegPage> {
 
                   const SizedBox(height: 10),
                   const Text(
-                      "Welcome",
+                      "Welcome to TimeList",
                       style: TextStyle(color: Color(0xfff17309),
                         fontSize: 30,)
                   ),

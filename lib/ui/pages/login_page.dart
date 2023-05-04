@@ -67,7 +67,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-
 @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -79,13 +78,13 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children:  [
                 const SizedBox(height: 25),
-                const Icon(Icons.lock,
+                const Icon(Icons.person,
                 size: 100,
                 color: Color(0xfff17309)),
 
                 const SizedBox(height: 20),
                 const Text(
-                    "Welcome",
+                    "Welcome to TimeList",
                   style: TextStyle(color: Color(0xfff17309),
                   fontSize: 30,)
                 ),
@@ -167,14 +166,10 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 )
               ],
-
             ),
           ),
         ),
       )
-
-
-
     );
   }
 }

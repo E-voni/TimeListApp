@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   double left=630;
   double top=900;
   Timer? _timer;
-//  final user = FirebaseAuth.instance.currentUser!;
+  //final user = FirebaseAuth.instance.currentUser!;
 
   @override
   void initState() {
@@ -315,7 +315,6 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
   _noTaskMsg() {
     return Stack(
       children:[ AnimatedPositioned(
