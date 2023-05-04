@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../theme.dart';
 
 class LoginButton extends StatelessWidget {
@@ -22,7 +21,7 @@ class LoginButton extends StatelessWidget {
           margin: const EdgeInsets.only(top: 15, left: 33),
           child: Text(
             label,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 25,
               color: Colors.white,
             ),

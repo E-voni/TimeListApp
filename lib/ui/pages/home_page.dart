@@ -1,23 +1,18 @@
 import 'dart:async';
-
 import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/controllers/task_controller.dart';
 import 'package:myapp/models/task.dart';
-//import 'package:myapp/services/notification_services.dart';
 import 'package:myapp/ui/pages/add_task_page.dart';
 import 'package:myapp/ui/size_config.dart';
 import 'package:myapp/ui/theme.dart';
 import 'package:myapp/ui/widgets/button.dart';
 import 'package:intl/intl.dart';
 import 'package:myapp/ui/widgets/task_tile.dart';
-
 import '../../services/theme_services.dart';
 
 class HomePage extends StatefulWidget {
@@ -32,10 +27,12 @@ class _HomePageState extends State<HomePage> {
   double left=630;
   double top=900;
   Timer? _timer;
+//  final user = FirebaseAuth.instance.currentUser!;
+
   @override
   void initState() {
     super.initState();
-    _timer = Timer(Duration(milliseconds: 500), () {
+    _timer = Timer(const Duration(milliseconds: 500), () {
       setState(() {
         animate=true;
         left=30;
@@ -57,7 +54,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           _addTaskBar(),
           _dateBar(),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           _showTasks(),
@@ -82,28 +79,26 @@ class _HomePageState extends State<HomePage> {
           //selectedTextColor: primaryClr,
           selectedTextColor: Colors.white,
           dateTextStyle: GoogleFonts.lato(
-            textStyle: TextStyle(
+            textStyle: const TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.w600,
               color: Colors.grey,
             ),
           ),
           dayTextStyle: GoogleFonts.lato(
-            textStyle: TextStyle(
+            textStyle: const TextStyle(
               fontSize: 16.0,
               color: Colors.grey,
             ),
           ),
           monthTextStyle: GoogleFonts.lato(
-            textStyle: TextStyle(
+            textStyle: const TextStyle(
               fontSize: 10.0,
               color: Colors.grey,
             ),
           ),
-
           onDateChange: (date) {
             // New date selected
-
             setState(
                   () {
                 _selectedDate = date;
@@ -117,8 +112,8 @@ class _HomePageState extends State<HomePage> {
 
   _addTaskBar() {
     return Container(
-      margin: EdgeInsets.only(bottom: 12),
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -129,21 +124,14 @@ class _HomePageState extends State<HomePage> {
                 "Today is",
                 style: headingTextStyle,
               ),
-              Text(
-                " ",
+              Text(" ",
                 style: subHeadingTextStyle,
               ),
-             /* Text(
-                "Today is",
-                style: headingTextStyle,
-              ),
-              */
               Text(
                 DateFormat.yMMMMd().format(DateTime.now()),
                 style: headingTextStyle,
               ),
               const SizedBox(height: 20,)
-
             ],
           ),
           MyButton(
@@ -180,14 +168,12 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-
-
   _showTasks() {
     return Expanded(
       child: Obx(() {
         if (_taskController.taskList.isEmpty) {
           return _noTaskMsg();
-        } else
+        } else {
           return ListView.builder(
               scrollDirection: Axis.vertical,
               itemCount: _taskController.taskList.length,
@@ -197,21 +183,10 @@ class _HomePageState extends State<HomePage> {
 
                   var hour= task.startTime.toString().split(":")[0];
                   var minutes = task.startTime.toString().split(":")[1];
-                  debugPrint("My time is "+hour);
-                  debugPrint("My minute is "+minutes);
+                  debugPrint("My time is " + hour);
+                  debugPrint("My minute is " + minutes);
                   DateTime date= DateFormat.jm().parse(task.startTime!);
                   var myTime = DateFormat("HH:mm").format(date);
-                  /*
-                  print("my date "+date.toString());
-                  print("my time " +myTime);
-                  var t=DateFormat("M/d/yyyy hh:mm a").parse(task.date+" "+task.startTime);
-                  print(t);
-                  print(int.parse(myTime.toString().split(":")[0]));*/
-                 /*
-                  notifyHelper.scheduledNotification(int.parse(myTime.toString().split(":")[0]),
-                      int.parse(myTime.toString().split(":")[1]), task);
-
-                  */
                   return AnimationConfiguration.staggeredList(
                     position: index,
                     duration: const Duration(milliseconds: 1375),
@@ -258,6 +233,7 @@ class _HomePageState extends State<HomePage> {
                   return Container();
                 }
               });
+        }
       }),
     );
   }
@@ -265,7 +241,7 @@ class _HomePageState extends State<HomePage> {
   showBottomSheet(BuildContext context, Task task) {
     Get.bottomSheet(
       Container(
-        padding: EdgeInsets.only(top: 4),
+        padding: const EdgeInsets.only(top: 4),
         height: task.isCompleted == 1
             ? SizeConfig.screenHeight * 0.24
             : SizeConfig.screenHeight * 0.32,
@@ -279,7 +255,7 @@ class _HomePageState extends State<HomePage> {
                 borderRadius: BorderRadius.circular(10),
                 color: Get.isDarkMode ? Colors.grey[600] : Colors.grey[300]),
           ),
-          Spacer(),
+          const Spacer(),
           task.isCompleted == 1
               ? Container()
               : _buildBottomSheetButton(
@@ -296,7 +272,7 @@ class _HomePageState extends State<HomePage> {
                 Get.back();
               },
               clr: Colors.red[300]),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           _buildBottomSheetButton(
@@ -305,7 +281,7 @@ class _HomePageState extends State<HomePage> {
                 Get.back();
               },
               isClose: true),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
         ]),
@@ -318,7 +294,7 @@ class _HomePageState extends State<HomePage> {
     return GestureDetector(
       onTap: onTap as void Function()?,
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 4),
+        margin: const EdgeInsets.symmetric(vertical: 4),
         height: 55,
         width: SizeConfig.screenWidth! * 0.9,
         decoration: BoxDecoration(
@@ -355,23 +331,7 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-               /* SvgPicture.asset(
-                  color: primaryClr.withOpacity(0.5),
-                  height: 90,
-                  semanticsLabel: 'Task',
-                ),
-                */
-                /*
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                  child: Text(
-                    "No task for today",
-                    textAlign: TextAlign.center,
-                    style: subTitleTextStle,
-                  ),
-                ),
-                 */
+              children: const [
                 SizedBox(
                   height: 80,
                 ),

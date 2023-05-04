@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:myapp/ui/pages/home_page.dart';
 import 'package:myapp/ui/pages/login_page.dart';
 
+import 'login_or_reg_page.dart';
+
 
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
@@ -17,7 +19,7 @@ class AuthPage extends StatelessWidget {
             return HomePage();
           }
           else{
-            return LoginPage();
+            return const LoginOrRegPage();
     }
           }
     ),
