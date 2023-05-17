@@ -20,10 +20,9 @@ class LoginPage extends StatefulWidget{
 
 class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
-
   final passwordController = TextEditingController();
 
-  //sign user in method
+  //sign in
   void signUserIn() async{
     //show loading circle
     showDialog(

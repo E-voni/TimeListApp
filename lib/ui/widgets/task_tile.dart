@@ -73,6 +73,7 @@ class TaskTile extends StatelessWidget {
             width: 0.5,
             color: Colors.grey[200]!.withOpacity(0.7),
           ),
+
           RotatedBox(
             quarterTurns: 3,
             child: Text(

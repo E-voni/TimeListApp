@@ -19,8 +19,6 @@ class _AddTaskPageState extends State<AddTaskPage> {
   final TextEditingController _noteController = TextEditingController();
 
   DateTime _selectedDate = DateTime.now();
-  //String _startTime = DateFormat("hh:mm").format(DateTime.now());
-  //_startTime = DateFormat('hh:mm a').format(DateTime.now()).toString();
   String? _startTime = DateFormat('hh:mm a').format(DateTime.now()).toString();
 
   String? _endTime = "9:30 AM";
@@ -44,20 +42,17 @@ class _AddTaskPageState extends State<AddTaskPage> {
 
   @override
   Widget build(BuildContext context) {
-    //Below shows the time like Sep 15, 2021
-    //print(new DateFormat.yMMMd().format(new DateTime.now()));
     print(" starttime " + _startTime!);
     final now = new DateTime.now();
     final dt = DateTime(now.year, now.month, now.day, now.minute, now.second);
     final format = DateFormat.jm();
     print(format.format(dt));
     print("add Task date: " + DateFormat.yMd().format(_selectedDate));
-    //_startTime = DateFormat('hh:mm a').format(DateTime.now()).toString();
     return Scaffold(
       backgroundColor: context.theme.backgroundColor,
       appBar: _appBar(),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,7 +83,6 @@ class _AddTaskPageState extends State<AddTaskPage> {
                     Icons.calendar_month_sharp,
                     color: Colors.orangeAccent,)),
                   onPressed: () {
-                    //_showDatePicker(context);
                     _getDateFromUser();
                   },
                 ),
@@ -108,7 +102,6 @@ class _AddTaskPageState extends State<AddTaskPage> {
                         onPressed: () {
                           _getTimeFromUser(isStartTime: true);
                           setState(() {
-
                           });
                         },
                       ),
@@ -141,7 +134,6 @@ class _AddTaskPageState extends State<AddTaskPage> {
                   children: [
                     DropdownButton<String>(
                         dropdownColor: Colors.orangeAccent,
-                      //value: _selectedRemind.toString(),
                         icon: const Icon(
                           Icons.keyboard_arrow_down,
                           color: Colors.grey,
@@ -175,7 +167,6 @@ class _AddTaskPageState extends State<AddTaskPage> {
                     Container(
                       child: DropdownButton<String>(
                           dropdownColor: Colors.orangeAccent,
-                          //value: _selectedRemind.toString(),
                           icon: const Icon(
                             Icons.keyboard_arrow_down,
                             color: Colors.grey),

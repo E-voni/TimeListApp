@@ -3,8 +3,6 @@ import 'package:myapp/db/db_helper.dart';
 import 'package:myapp/models/task.dart';
 
 class TaskController extends GetxController {
-  //this will hold the data and update the ui
-
   @override
   void onReady() {
     getTasks();
@@ -13,25 +11,24 @@ class TaskController extends GetxController {
 
   final RxList<Task> taskList = List<Task>.empty().obs;
 
-  // add data to table
-  //second brackets means they are named optional parameters
+  // add data
   Future<void> addTask({required Task task}) async {
     await DBHelper.insert(task);
   }
 
-  // get all the data from table
+  // get all data
   void getTasks() async {
     List<Map<String, dynamic>> tasks = await DBHelper.query();
     taskList.assignAll(tasks.map((data) => new Task.fromJson(data)).toList());
   }
 
-  // delete data from table
+  // delete
   void deleteTask(Task task) async {
     await DBHelper.delete(task);
     getTasks();
   }
 
-  // update data int table
+  // update
   void markTaskCompleted(int? id) async {
     await DBHelper.update(id);
     getTasks();
